@@ -106,6 +106,34 @@ class Linkedlist:
             return slow
         print("loop doesnot exist")
         return  None
+    def middle(self):
+        p=self.head
+        q= self.head
+        while (q!=None and q.next!=None ):
+            p=p.next
+            q=q.next.next
+        return q
+    def reverseNode(self):
+        current=self.head
+        next=None
+        prev=None
+        while current!=None:
+            next =current.next
+            current.next=prev
+            prev=current
+            current=next
+        return prev
+    def reverse(self):
+        node=self.head
+        while node is not None:
+            str=" "
+            for i in range(1,len(node.data)+1):
+                str+=node.data[-i]
+            node.data=str
+            node=node.next
+            
+        
+    
     def printList(self):
         if self.head is None:
             print("List is empty")
@@ -115,16 +143,18 @@ class Linkedlist:
                 break
             print(currentNode.data)
             currentNode = currentNode.next
-firstNode = Node("john")
+firstNode = Node(1)
 linkedlist = Linkedlist()
 linkedlist.insertEnd(firstNode)
-secondNode = Node("ben")
+secondNode = Node(2)
 linkedlist.insertEnd(secondNode)
-thirdNode = Node("mathew")
+thirdNode = Node(3)
 linkedlist.insertEnd(thirdNode)
 linkedlist.insertEnd(secondNode)
-linkedlist.detectCycle()
-# linkedlist.deleteAt(1)
-# linkedlist.printList()
+# linkedlist.detectCycle()
+# linkedlist.reverse()
+linkedlist.reverseNode()
+linkedlist.deleteAt(1)
+linkedlist.printList()
 
 
